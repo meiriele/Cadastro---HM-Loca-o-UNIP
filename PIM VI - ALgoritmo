@@ -1,0 +1,267 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct
+{
+    int id_clientes;
+    char nome_motorista [100];
+    int cnh;
+    char endereco [500];
+    int cep;
+    int cnpj;
+    char telefone [20];
+} Cliente;
+
+typedef struct
+{
+    int id_funcionario;
+    char nome_funcionario [100];
+    int cargo;
+    char endereco [500];
+    int id_empresa;
+} Funcionario;
+
+typedef struct
+{
+    int id_veiculo;
+    char modelo [30];
+    char placa [10];
+    char cor [30];
+} Veiculo;
+
+typedef struct
+{
+    int forma; //1-cartao 2-boleto 3-dinheiro
+    int numero;
+} Info_PG;
+
+typedef struct
+{
+    int id_cliente;
+    char forma_pg[30];
+    int unidade_retirada;
+    char data_retirada[11];
+    int unidade_devolucao;
+    char data_devolucao[11];
+} Locacao;
+
+typedef struct
+{
+    int id_veiculo;
+    char dataDaMulta[11];
+    char localDaMulta [500];
+} Multas;
+
+typedef struct
+{
+    int id_veiculo;
+    char dataDaRevisao[11];
+    char localDaRevisao[500];
+} Revisao;
+
+int main()
+{
+    int num = 0;
+    Cliente cad_cliente;
+    Funcionario cad_funcionario;
+    Veiculo cad_veiculo;
+    Info_PG cad_pg;
+    Locacao cad_locacao;
+    Multas cad_multas;
+    Revisao cad_revisao;
+    char printa;
+    int pg;
+
+    printf("Programa referente ao PIM VI - UNIP\n");
+    printf("DISCENTE: Maria Meiriele Dias Da Silva\n");
+    printf("MATRICULA: 2004860");
+
+    while( num != 8)
+    {
+        printf("\n\n\n");
+        printf("HM Locacao de Veiculos Ltda\n\n");
+        printf("MENU:\n");
+        printf("1 - Cadastrar Cliente\n");
+        printf("2 - Cadastrar Funcionario\n");
+        printf("3 - Cadastrar Veiculo\n");
+        printf("4 - Cadastrar Locacao\n");
+        printf("5 - Forma de Pagamento\n");
+        printf("6 - Cadastrar Multas\n");
+        printf("7 - Cadastrar Revisao\n");
+        printf("8 - Sair\n");
+        printf("Sua escolha: ");
+        scanf("%d",&num);
+
+        switch (num)
+        {
+        case 1:
+            printf("\n Digite o id do cliente: ");
+            scanf ("%d",&cad_cliente.id_clientes);
+            printf("\n Digite o cnpj do locatario: ");
+            scanf("%d",&cad_cliente.cnpj);
+            getchar();
+            printf("\n Digite o telefone de contato (sem espacos ou caracteres, incluindo o ddd): ");
+            gets(cad_cliente.telefone);
+            printf("\n Digite o nome do motorista: ");
+            gets(cad_cliente.nome_motorista);
+            printf("\n Digite o numero da cnh do motorista: ");
+            scanf("%d",&cad_cliente.cnh);
+            getchar();
+            printf("\n Digite o endereco completo do motorista: ");
+            gets(cad_cliente.endereco);
+            printf("\n Digite o cep: ");
+            scanf("%d",&cad_cliente.cep);
+
+            printf("\nCadastro do cliente de id %d realizado com sucesso!\n",cad_cliente.id_clientes);
+            printf("\nDeseja conferir as informacoes inceridas? Digite s caso deseje: ");
+            scanf("%s",&printa);
+            if (printa == 'S' || printa == 's')
+            {
+                printf("\n ID: %d",cad_cliente.id_clientes);
+                printf("\n CNPJ: %d",cad_cliente.cnpj);
+                printf("\n TELEFONE: %s",cad_cliente.telefone);
+                printf("\n NOME DO MOTORISTA: %s",cad_cliente.nome_motorista);
+                printf("\n CNH: %d",cad_cliente.cnh);
+                printf("\n ENDERECO: %s",cad_cliente.endereco);
+                printf("\n CEP: %d",cad_cliente.cep);
+            }
+            break;
+        case 2:
+            printf("\n Digite o id do funcionario: ");
+            scanf ("%d",&cad_funcionario.id_funcionario);
+            getchar();
+            printf("\n Digite o nome do funcionario: ");
+            gets(cad_funcionario.nome_funcionario);
+            printf("\n Digite o endereco do funcionario: ");
+            gets(cad_funcionario.endereco);
+            printf("\n Digite o codigo correspondente ao cargo do funcionario: ");
+            scanf("%d",&cad_funcionario.cargo);
+            printf("\n Digite o id da empresa em que o funcionario esta cadastrado: ");
+            scanf("%d",&cad_funcionario.id_empresa);
+
+            printf("\nCadastro do funcionario de id %d realizado com sucesso!\n",cad_funcionario.id_funcionario);
+            printf("\nDeseja conferir as informacoes inceridas? Digite s caso deseje: ");
+            scanf("%s",&printa);
+            if (printa == 'S' || printa == 's')
+            {
+                printf("\nID: %d",cad_funcionario.id_funcionario);
+                printf("\nNOME: %s", cad_funcionario.nome_funcionario);
+                printf("\nENDERECO: %s",cad_funcionario.endereco);
+                printf("\nCARGO: %d",cad_funcionario.cargo);
+                printf("\nID DA EMPRESA: %d",cad_funcionario.id_empresa);
+            }
+            break;
+        case 3:
+            printf("\n Digite o id do veiculo: ");
+            scanf("%d",cad_veiculo.id_veiculo);
+            getchar();
+            printf("\n Digite o modelo do veiculo: ");
+            gets(cad_veiculo.modelo);
+            printf("\n Digite a placa do veiculo: ");
+            gets(cad_veiculo.placa);
+            printf("\n Digite a cor do veiculo: ");
+            gets(cad_veiculo.cor);
+
+            printf("\nCadastro do veiculo de id %d realizado com sucesso!\n",cad_veiculo.id_veiculo);
+            printf("\nDeseja conferir as informacoes inceridas? Digite s caso deseje: ");
+            scanf("%s",&printa);
+            if (printa == 'S' || printa == 's')
+            {
+                printf("\nID: %d",cad_veiculo.id_veiculo);
+                printf("\nMODELO: %s",cad_veiculo.modelo);
+                printf("\nPLACA: %s",cad_veiculo.placa);
+                printf("\nCOR: %s",cad_veiculo.cor);
+            }
+            break;
+        case 4:
+            printf("\n Digite o id do cliente: ");
+            scanf("%d",&cad_locacao.id_cliente);
+            getchar();
+            printf("\n Digite a forma de pagamento: ");
+            gets(cad_locacao.forma_pg);
+            printf("\n Digite o codigo da unidade de retirada: ");
+            scanf("%d",&cad_locacao.unidade_retirada);
+            getchar();
+            printf("\n Digite a data de retirada (dia/mes/ano): ");
+            gets(cad_locacao.data_retirada);
+            printf("\n Digite o codigo da unidade de devolucao: ");
+            scanf("%d",&cad_locacao.unidade_devolucao);
+            getchar();
+            printf("\n Digite a data de devolucao (dia/mes/ano): ");
+            gets(cad_locacao.data_devolucao);
+
+            printf("\nCadastro de locacao realizada pelo cliente  de id %d realizado com sucesso!\n",cad_locacao.id_cliente);
+            printf("\nDeseja conferir as informacoes inseridas? Digite s caso deseje: ");
+            scanf("%s",&printa);
+            if (printa == 'S' || printa == 's')
+            {
+             printf("\nID DO CLIENTE: %d",cad_locacao.id_cliente);
+             printf("\nFORMA DE PAGAMENTO: %s",cad_locacao.forma_pg);
+             printf("\nCODIGO DA UNIDADE DE RETIRADA: %d",cad_locacao.unidade_retirada);
+             printf("\nDATA DE RETIRADA: %s",cad_locacao.data_retirada);
+             printf("\nCODIGO DA UNIDADE DE DEVOLUCAO: %d",cad_locacao.unidade_devolucao);
+             printf("\nDATA DE DEVOLUCAO: %s",cad_locacao.data_devolucao);
+            }
+            break;
+        case 5:
+            printf("\n Pagamento ocorrera via: ");
+            printf("\n 1 - cartao");
+            printf("\n 2 - boleto");
+            printf("\n 3 - dinheiro");
+            printf("\n sua escolha: ");
+            scanf("%d",&pg);
+            cad_pg.forma = pg;
+            if(pg == 1)
+            {
+             printf("\n Digite o numero do cartao: ");
+             scanf("%d",&cad_pg.numero);
+            }
+            else if (pg ==2)
+            {
+            printf("\n Digite o numero do boleto: ");
+            scanf("%d",&cad_pg.numero);
+            }
+
+            printf("\nCadastro de forma de pagamento realizado com sucesso!\nSua escolha foi: ");
+            if(cad_pg.forma == 1)
+                printf("cartao");
+            else if(cad_pg.forma == 2)
+                printf("boleto");
+            else if (cad_pg.forma == 3)
+                printf("dinheiro");
+            else
+                printf("escolha invalida, tente novamente!");
+            break;
+        case 6:
+            printf("\n Digite o id do veiculo: ");
+            scanf("%d",&cad_multas.id_veiculo);
+            getchar();
+            printf("\n Digite a data em que a multa ocorreu (dia/mes/ano): ");
+            gets(cad_multas.dataDaMulta);
+            printf("\n Digite o local em que a multa foi autuada: ");
+            gets(cad_multas.localDaMulta);
+
+            printf("\nCadastro da multa referente ao carro de id %d realizada com sucesso!",cad_multas.id_veiculo);
+            printf("\nA multa ocorreu no dia %s, autuada em %s",cad_multas.dataDaMulta,cad_multas.localDaMulta);
+            break;
+        case 7:
+            printf("\n Digite o id do veiculo: ");
+            scanf("%d",&cad_revisao.id_veiculo);
+            getchar();
+            printf("\n Digite a data em que a revisao esta agendada (dia/mes/ano): ");
+            gets(cad_revisao.dataDaRevisao);
+            printf("\n Digite o local em que a revisao esta agendada: ");
+            gets(cad_revisao.localDaRevisao);
+
+            printf("\nCadastro da revisao referente ao carro de id %d realizada com sucesso!",cad_revisao.id_veiculo);
+            printf("\nSua revisao ficou agendada para o dia %s, a ser realizada em %s",cad_revisao.dataDaRevisao,cad_revisao.localDaRevisao);
+            break;
+        case 8:
+            break;
+
+        default:
+            printf("Valor invalido!\n");
+        }
+    }
+    return 0;
+}
