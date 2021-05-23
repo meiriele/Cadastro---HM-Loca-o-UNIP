@@ -72,6 +72,7 @@ int main()
     char printa;
     int pg;
 
+    printf("\n\n\n");
     printf("Programa referente ao PIM VI - UNIP\n");
     printf("DISCENTE: Maria Meiriele Dias Da Silva\n");
     printf("MATRICULA: 2004860");
@@ -113,7 +114,7 @@ int main()
             scanf("%d",&cad_cliente.cep);
 
             printf("\nCadastro do cliente de id %d realizado com sucesso!\n",cad_cliente.id_clientes);
-            printf("\nDeseja conferir as informacoes inceridas? Digite s caso deseje: ");
+            printf("\nDeseja conferir as informacoes inseridas? Digite s caso deseje: ");
             scanf("%s",&printa);
             if (printa == 'S' || printa == 's')
             {
@@ -140,7 +141,7 @@ int main()
             scanf("%d",&cad_funcionario.id_empresa);
 
             printf("\nCadastro do funcionario de id %d realizado com sucesso!\n",cad_funcionario.id_funcionario);
-            printf("\nDeseja conferir as informacoes inceridas? Digite s caso deseje: ");
+            printf("\nDeseja conferir as informacoes inseridas? Digite s caso deseje: ");
             scanf("%s",&printa);
             if (printa == 'S' || printa == 's')
             {
@@ -163,7 +164,7 @@ int main()
             gets(cad_veiculo.cor);
 
             printf("\nCadastro do veiculo de id %d realizado com sucesso!\n",cad_veiculo.id_veiculo);
-            printf("\nDeseja conferir as informacoes inceridas? Digite s caso deseje: ");
+            printf("\nDeseja conferir as informacoes inseridas? Digite s caso deseje: ");
             scanf("%s",&printa);
             if (printa == 'S' || printa == 's')
             {
@@ -265,3 +266,4 @@ int main()
     }
     return 0;
 }
+
