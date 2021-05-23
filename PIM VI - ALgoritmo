@@ -72,7 +72,6 @@ int main()
     char printa;
     int pg;
 
-    printf("\n\n\n");
     printf("Programa referente ao PIM VI - UNIP\n");
     printf("DISCENTE: Maria Meiriele Dias Da Silva\n");
     printf("MATRICULA: 2004860");
@@ -154,7 +153,7 @@ int main()
             break;
         case 3:
             printf("\n Digite o id do veiculo: ");
-            scanf("%d",cad_veiculo.id_veiculo);
+            scanf("%d",&cad_veiculo.id_veiculo);
             getchar();
             printf("\n Digite o modelo do veiculo: ");
             gets(cad_veiculo.modelo);
